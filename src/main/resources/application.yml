@@ -1,0 +1,31 @@
+spring:
+  application:
+    name=exo1
+
+  datasource:
+    url: jdbc:h2:mem:testdb2   # Use 'mem' for in-memory, or a file path for persistent storage
+    driver-class-name: org.h2.Driver
+    username: sa              # Default H2 username
+    password:                 # Default is no password
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create        # Options: validate, update, create, create-drop
+    show-sql: true             # Show SQL queries in the logs
+    properties:
+      hibernate:
+        format_sql: true       # Format SQL output
+        use_sql_comments: true # Adds comments to SQL logs
+  sql:
+    init:
+      platform: h2
+
+server:
+  port: 8080                   # Optional, specify your application's port
+
+# H2 Console configuration
+h2:
+  console:
+    enabled: true              # Enable H2 web console
+    path: /h2-console          # Path to access the console (default: /h2-console)
